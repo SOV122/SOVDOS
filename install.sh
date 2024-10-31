@@ -5,13 +5,13 @@ echo "=========================================="
 echo "          SOVDOS Installation"
 echo "=========================================="
 
-# Check if running as root
+
 if [ "$EUID" -ne 0 ]; then 
     echo "Please run as root"
     exit
 fi
 
-# Update package list and install Python3 if not installed
+
 echo "Checking for Python3..."
 if ! command -v python3 &> /dev/null
 then
@@ -21,7 +21,7 @@ else
     echo "Python3 is already installed."
 fi
 
-# Check for Python3 pip and install if missing
+
 echo "Checking for pip3..."
 if ! command -v pip3 &> /dev/null
 then
@@ -31,11 +31,11 @@ else
     echo "pip3 is already installed."
 fi
 
-# Make sovdos.py executable
+
 echo "Setting up SOVDOS..."
 chmod +x sovdos.py
 
-# Create a symbolic link to run SOVDOS from anywhere
+
 echo "Creating symbolic link..."
 ln -sf "$(pwd)/sovdos.py" /usr/local/bin/sovdos
 
